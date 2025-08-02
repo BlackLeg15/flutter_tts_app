@@ -28,7 +28,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final methodChannel = MethodChannel('flutter_tts_native');
+  final methodChannel = MethodChannel('flutter_text_to_speech_channel');
 
 
   Future<void> execute(Future<void> Function() func) async {

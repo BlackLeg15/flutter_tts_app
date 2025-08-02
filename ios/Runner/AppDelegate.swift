@@ -13,13 +13,13 @@ import AVFoundation
     GeneratedPluginRegistrant.register(with: self)
 
     let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
-    let textToSpeechChannel = FlutterMethodChannel(name: "flutter_tts_native", binaryMessenger: controller.binaryMessenger)
+    let textToSpeechChannel = FlutterMethodChannel(name: "flutter_text_to_speech_channel", binaryMessenger: controller.binaryMessenger)
     textToSpeechChannel.setMethodCallHandler(handler);
 
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 
-  private func handle(call: FlutterMethodCall, result: @escaping FlutterResult) {
+  private func handler(call: FlutterMethodCall, result: @escaping FlutterResult) {
     if call.method == "speak" {
       let text = call.arguments as? String
       let isTextNotEmpty = text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == false
